@@ -1,0 +1,43 @@
+<idea-plugin>
+    <id>io.github.biezhi.plugins.gitmoji</id>
+    <name>Gitmoji</name>
+    <version>1.0</version>
+    <vendor email="biezhi.me@gmail.com" url="https://github.com/biezhi">王爵nice</vendor>
+
+    <description><![CDATA[
+         <p>This is a plugin that helps you pick the right emoji expression when git is submitted.<br/><br/></p>
+         <b>Usage</b><br/>
+         <pre> » Input the changes you want to submit the content.</pre>
+         <pre> » <a href="https://gitmoji.carloscuesta.me/">reference commit rules.</a></pre>
+         <br/><br/>
+         <hr/>
+         <br/><br/>
+         <p>
+            这是一个帮助你在git提交的时候选择正确的 emoji 表情的插件。<br/>
+         </p>
+         <b>使用方法</b><br/>
+         <pre> » 输入你要提交的改动内容即可，提交规则可参考 <a href="http://gitmoji.surge.sh/">提交日志规则</a></pre>
+         <br/><br/>
+         <hr/>
+         <br/><br/>
+         <b><a href="https://github.com/biezhi/gitmoji-plugin">Source Code</a></b>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <completion.contributor language="TEXT"
+                                order="first, before commitCompletion"
+                                implementationClass="io.github.biezhi.plugins.GitmojiCompletionContributor"/>
+    </extensions>
+
+    <actions>
+    </actions>
+
+</idea-plugin>
