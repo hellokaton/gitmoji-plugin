@@ -17,6 +17,11 @@ go https://plugins.jetbrains.com/plugin/10315-gitmoji download.
 
 ![](screenshot/example.gif)
 
+## Thanks
+
+- [emoji-cheat-sheet.com](https://github.com/WebpageFX/emoji-cheat-sheet.com)
+- [gitmoji](https://gitmoji.carloscuesta.me/)
+
 ## License
 
 [MIT](LICENSE)
