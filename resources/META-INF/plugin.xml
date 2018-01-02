@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>io.github.biezhi.plugins.gitmoji</id>
     <name>Gitmoji</name>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <vendor email="biezhi.me@gmail.com" url="https://github.com/biezhi">王爵nice</vendor>
 
     <description><![CDATA[
@@ -22,6 +22,12 @@
          <br/><br/>
          <b><a href="https://github.com/biezhi/gitmoji-plugin">Source Code</a></b>
     ]]></description>
+
+    <change-notes>
+        <![CDATA[
+         <p>Fixed <a href="https://github.com/biezhi/gitmoji-plugin/issues/1">(#1)</a><br/><br/></p>
+        ]]>
+    </change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
     <idea-version since-build="145.0"/>
