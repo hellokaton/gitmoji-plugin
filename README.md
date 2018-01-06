@@ -11,7 +11,7 @@ go https://plugins.jetbrains.com/plugin/10315-gitmoji download.
 ## Usage
 
 - » Input the changes you want to submit the content.
-- » [reference commit rules](https://gitmoji.carloscuesta.me)
+- » [Reference commit rules](https://gitmoji.carloscuesta.me)
 
 ## Preview
 
