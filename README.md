@@ -4,7 +4,7 @@
 
 Install directly from the IDE plugin manager (File > Settings > Plugins > Browser repositories > <kbd>gitmoji</kbd>)
 
-Or 
+**Or**
 
 go https://plugins.jetbrains.com/plugin/10315-gitmoji download.
 
@@ -24,4 +24,4 @@ go https://plugins.jetbrains.com/plugin/10315-gitmoji download.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/biezhi/gitmoji-plugin/blob/master/LICENSE)
