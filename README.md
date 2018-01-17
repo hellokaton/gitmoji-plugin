@@ -6,7 +6,7 @@ Install directly from the IDE plugin manager (File > Settings > Plugins > Browse
 
 **Or**
 
-go https://plugins.jetbrains.com/plugin/10315-gitmoji download.
+go [jetbrains plugin](https://plugins.jetbrains.com/plugin/10315-gitmoji) download.
 
 ## Usage
 
