@@ -68,6 +68,10 @@ class EmojiMapping {
         map["Add contributor(s)."] = EmojiData("busts_in_silhouette")
         map["Improving user experience / usability."] = EmojiData("children_crossing")
         map["Making architectural changes."] = EmojiData("building_construction")
+        map["Working on responsive design."] = EmojiData("iphone")
+        map["Mocking things."] = EmojiData("clown_face")
+        map["Adding an easter egg."]  = EmojiData("egg")
+        map["Adding or updating a .gitignore file."]  = EmojiData(":see_no_evil:")
 
 
         map["改进代码的结构/格式"] = EmojiData("art")
