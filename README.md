@@ -17,7 +17,7 @@ go [jetbrains plugin](https://plugins.jetbrains.com/plugin/10315-gitmoji) downlo
 ## Usage
 
 - Input the changes you want to submit the content.
-- [Reference commit rules](https://gitmoji.carloscuesta.me) / [中文提交注释](https://gitmoji.surge.sh/)
+- [Reference commit rules](https://gitmoji.carloscuesta.me) / [中文提交规则](https://gitmoji.surge.sh/)
 
 ## Preview
 
