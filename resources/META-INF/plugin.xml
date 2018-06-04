@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>io.github.biezhi.plugins.gitmoji</id>
     <name>Gitmoji</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <vendor email="biezhi.me@gmail.com" url="https://github.com/biezhi">王爵nice</vendor>
 
     <description><![CDATA[
@@ -25,7 +25,19 @@
 
     <change-notes>
         <![CDATA[
-         <p>Fixed <a href="https://github.com/biezhi/gitmoji-plugin/issues/1">(#1)</a><br/><br/></p>
+        <p>
+            <h4>1.0.2</h4>
+            <ul>
+                <li>Fixed <a href="https://github.com/biezhi/gitmoji-plugin/issues/3">(#3)</a></li>
+                <li>Fixed <a href="https://github.com/biezhi/gitmoji-plugin/issues/4">(#4)</a></li>
+            </ul>
+        </p>
+        <p>
+            <h4>1.0.1</h4>
+            <ul>
+                <li>Fixed <a href="https://github.com/biezhi/gitmoji-plugin/issues/1">(#1)</a></li>
+            </ul>
+        </p>
         ]]>
     </change-notes>
 

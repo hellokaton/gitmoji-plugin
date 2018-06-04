@@ -12,7 +12,7 @@ import javax.swing.Icon
 class EmojiMapping {
 
     var map = HashMap<String, EmojiData>()
-    var actions: MutableSet<String>?
+    val actions: MutableSet<String>
 
     constructor() {
         map["Improving structure / format of the code."] = EmojiData("art")
@@ -78,7 +78,7 @@ class EmojiMapping {
         map["优化性能"] = EmojiData("zap")
         map["移除代码或文件"] = EmojiData("fire")
         map["修复 BUG"] = EmojiData("bug")
-        map["关键代码修复"] = EmojiData("ambulance")
+        map["核心代码修复"] = EmojiData("ambulance")
         map["添加新特性"] = EmojiData("sparkles")
         map["编写文档"] = EmojiData("memo")
         map["部署程序"] = EmojiData("rocket")
