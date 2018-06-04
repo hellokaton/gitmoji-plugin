@@ -51,3 +51,5 @@ crashlytics-build.properties
 fabric.properties
 
 /gitmoji-plugin.jar
+.idea/
+*.iml
