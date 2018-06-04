@@ -8,7 +8,7 @@ Emoji to help you choose the right time to look at git log commit.
 
 ## Installation
 
-Install directly from the IDE plugin manager (File > Settings > Plugins > Browser repositories > <kbd>gitmoji</kbd>)
+Install directly from the IDE plugin manager (<kbd>File</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browser repositories</kbd> > <kbd>gitmoji</kbd>)
 
 **Or**
 
