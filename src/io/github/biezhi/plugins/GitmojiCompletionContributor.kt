@@ -27,6 +27,13 @@ class GitmojiCompletionContributor : CompletionContributor() {
                     return
                 }
 
+                if (":all".equals(message)) {
+                    mapping.actions!!.forEach {
+                        result.addElement(LookupElementBuilder.create(":${mapping.getText(it)}: " + it).withIcon(mapping.getIcon(it)))
+                    }
+                    return
+                }
+
                 mapping.actions!!.filterIndexed { _, it -> it.toLowerCase().indexOf(message.toLowerCase()) != -1 }
                         .forEach {
                             result.addElement(LookupElementBuilder.create(":${mapping.getText(it)}: " + it).withIcon(mapping.getIcon(it)))

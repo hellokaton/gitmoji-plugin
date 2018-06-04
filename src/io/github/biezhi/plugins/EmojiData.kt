@@ -12,11 +12,15 @@ import javax.swing.Icon
 class EmojiData {
 
     val emojiText: String?
-    val icon: Icon
+    var icon: Icon
 
     constructor(emojiText: String) {
         this.emojiText = emojiText
-        this.icon = IconLoader.getIcon("/icons/$emojiText.png")
+        try {
+            this.icon = IconLoader.getIcon("/icons/$emojiText.png")
+        } catch (e: Exception){
+            this.icon = IconLoader.getIcon("/icons/anguished.png")
+        }
     }
 
 }

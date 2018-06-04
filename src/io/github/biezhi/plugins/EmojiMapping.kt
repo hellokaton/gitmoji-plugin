@@ -71,8 +71,8 @@ class EmojiMapping {
         map["Working on responsive design."] = EmojiData("iphone")
         map["Mocking things."] = EmojiData("clown_face")
         map["Adding an easter egg."]  = EmojiData("egg")
-        map["Adding or updating a .gitignore file."]  = EmojiData(":see_no_evil:")
-
+        map["Adding or updating a .gitignore file."]  = EmojiData("see_no_evil")
+        map["Adding or updating snapshots."]  = EmojiData("camera_flash")
 
         map["改进结构和代码格式"] = EmojiData("art")
         map["优化性能"] = EmojiData("zap")
@@ -127,6 +127,11 @@ class EmojiMapping {
         map["添加贡献者"] = EmojiData("busts_in_silhouette")
         map["提高用户体验/可用性"] = EmojiData("children_crossing")
         map["架构调整"] = EmojiData("building_construction")
+        map["响应式设计"] = EmojiData("iphone")
+        map["模拟数据"] = EmojiData("clown_face")
+        map["添加一个彩蛋"]  = EmojiData("egg")
+        map["添加或更新 .gitignore 文件"]  = EmojiData("see_no_evil")
+        map["添加或更新快照"]  = EmojiData("camera_flash")
 
         this.actions = map.keys
     }
