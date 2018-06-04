@@ -74,10 +74,10 @@ class EmojiMapping {
         map["Adding or updating a .gitignore file."]  = EmojiData(":see_no_evil:")
 
 
-        map["改进代码的结构/格式"] = EmojiData("art")
-        map["提升性能"] = EmojiData("zap")
-        map["删除代码或文件"] = EmojiData("fire")
-        map["修复了一个 BUG"] = EmojiData("bug")
+        map["改进结构和代码格式"] = EmojiData("art")
+        map["优化性能"] = EmojiData("zap")
+        map["移除代码或文件"] = EmojiData("fire")
+        map["修复 BUG"] = EmojiData("bug")
         map["关键代码修复"] = EmojiData("ambulance")
         map["添加新特性"] = EmojiData("sparkles")
         map["编写文档"] = EmojiData("memo")
@@ -102,7 +102,7 @@ class EmojiMapping {
         map["添加分析或跟踪代码"] = EmojiData("chart_with_upwards_trend")
         map["重构代码"] = EmojiData("recycle")
         map["移除依赖"] = EmojiData("heavy_minus_sign")
-        map["相关工作"] = EmojiData("whale")
+        map["在 Docker 中运行"] = EmojiData("whale")
         map["添加依赖"] = EmojiData("heavy_plus_sign")
         map["修改配置文件"] = EmojiData("wrench")
         map["国际化和本地化"] = EmojiData("globe_with_meridians")
