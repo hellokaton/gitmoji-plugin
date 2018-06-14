@@ -2,9 +2,11 @@ package io.github.biezhi.plugins
 
 import com.intellij.codeInsight.completion.*
 import com.intellij.codeInsight.lookup.LookupElementBuilder
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.patterns.PlatformPatterns
 import com.intellij.psi.PsiPlainText
 import com.intellij.util.ProcessingContext
+
 
 /**
  * GitmojiCompletionContributor
@@ -16,6 +18,8 @@ class GitmojiCompletionContributor : CompletionContributor() {
 
     val mapping = EmojiMapping()
 
+    val LOG = Logger.getInstance(javaClass)
+
     init {
         extend(CompletionType.BASIC, PlatformPatterns.psiElement(PsiPlainText::class.java), object : CompletionProvider<CompletionParameters>() {
             override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext?, result: CompletionResultSet) {
@@ -23,15 +27,8 @@ class GitmojiCompletionContributor : CompletionContributor() {
                     return
                 }
 
-                /**
-                 * 瞎改
-                 *
-                 * 參考 https://github.com/JetBrains/intellij-community/blob/master/plugins/xpath/xpath-lang/src/org/intellij/lang/xpath/completion/XPathInsertHandler.java
-                 */
                 val editor = parameters.editor
                 val charsSequence = editor.document.charsSequence
-                val caretModel = editor.caretModel
-                var offset = caretModel.offset
 
                 var message = charsSequence.toString().toLowerCase()
 
@@ -39,51 +36,42 @@ class GitmojiCompletionContributor : CompletionContributor() {
                     return
                 }
 
-                val eb = message.indexOf(":") != -1
-                var pos: Int = if (message.length > offset) offset else 0
+                val caretModel = editor.caretModel
+                val offset = caretModel.offset
+                val pos = Math.max(0, Math.max(message.lastIndexOf(":", offset), message.lastIndexOf(" ", offset)))
 
-                var msg2 = message.substring(pos).trim()
+                //LOG.info("lastIndexOf= ${message.lastIndexOf(":", offset)}")
+                //LOG.info("lastIndexOf= ${message.lastIndexOf(" ", offset)}")
 
-                message = message.trim()
+                message = message.substring(pos).trim()
 
-                if (message.indexOf("\n") != -1) {
-                    val split = message.split("\n")
-                    message = split[split.size - 1]
-                }
+                //LOG.info("${pos} ${offset} ${message}")
 
-                if (message.indexOf(" ") != -1) {
-                    val split = message.split(" ")
-                    message = split[0]
-                }
+                val split = message.split(Regex("\\s"))
+                message = split[0]
 
-                if (msg2.indexOf("\n") != -1) {
-                    val split = msg2.split("\n")
-                    msg2 = split[split.size - 1]
-                }
+                val eb = message.indexOf(":") == 0
 
-                if (msg2.indexOf(" ") != -1) {
-                    val split = msg2.split(" ")
-                    msg2 = split[split.size - 1]
+                if (eb) {
+                    message = message.substring(1)
                 }
 
                 if (eb) {
-                    message = message.replace(":", "")
-                    msg2 = msg2.replace(":", "")
+                    mapping.actions
+                            .forEach {
+                                val ej = mapping.getText(it) as String
+
+                                if (ej.toLowerCase().indexOf(message) != -1) {
+                                    result.addElement(LookupElementBuilder.create("${ej}:").withIcon(mapping.getIcon(it)))
+                                }
+                            }
                 }
 
                 mapping.actions
                         //.filterIndexed { _, it -> it.toLowerCase().indexOf(message.toLowerCase()) != -1 }
                         .forEach {
-
-                            val ej = mapping.getText(it) as String
-                            val icon = mapping.getIcon(it)
-
-                            if (eb && (ej.toLowerCase().indexOf(message) != -1 || ej.toLowerCase().indexOf(msg2) != -1)) {
-                                result.addElement(LookupElementBuilder.create(":${ej}:").withIcon(icon))
-                            }
-
-                            if (it.toLowerCase().indexOf(message) != -1 || it.toLowerCase().indexOf(msg2) != -1) {
-                                result.addElement(LookupElementBuilder.create(":${ej}: " + it).withIcon(icon))
+                            if (it.toLowerCase().indexOf(message) != -1) {
+                                result.addElement(LookupElementBuilder.create("${if (eb) "" else ":"}${mapping.getText(it)}: " + it).withIcon(mapping.getIcon(it)))
                             }
                         }
             }
