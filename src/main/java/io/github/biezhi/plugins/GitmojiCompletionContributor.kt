@@ -27,59 +27,29 @@ class GitmojiCompletionContributor : CompletionContributor() {
                     context: ProcessingContext,
                     result: CompletionResultSet
                 ) {
-                    if (parameters.editor.isOneLineMode) {
+                    val editor = parameters.editor
+                    if (editor.isOneLineMode) {
                         return
                     }
 
-                    val editor = parameters.editor
-                    val charsSequence = editor.document.charsSequence
-
-                    var message = charsSequence.toString().toLowerCase()
-
+                    var message = editor.document.charsSequence.toString().toLowerCase()
                     if (message.length < 2) {
                         return
                     }
 
                     val caretModel = editor.caretModel
                     val offset = caretModel.offset
-                    val pos = 0.coerceAtLeast(
-                        message.lastIndexOf(":", offset).coerceAtLeast(message.lastIndexOf(" ", offset))
-                    )
+                    val pos = 0.coerceAtLeast(message.lastIndexOf(" ", offset))
 
                     message = message.substring(pos).trim()
 
                     val split = message.split(Regex("\\s"))
                     message = split[0]
 
-                    val eb = message.indexOf(":") == 0
-
-                    if (eb) {
-                        message = message.substring(1)
-                    }
-
-                    if (eb) {
-                        mapping.actions
-                            .forEach {
-                                val ej = mapping.getText(it) as String
-
-                                if (ej.toLowerCase().indexOf(message) != -1) {
-                                    result.addElement(
-                                        LookupElementBuilder.create("${ej}:")
-                                    )
-                                }
-                            }
-                    }
-
-                    mapping.actions
-                        .forEach {
-                            if (it.toLowerCase().indexOf(message) != -1) {
-                                result.addElement(
-                                    LookupElementBuilder.create(
-                                        "${mapping.getText(it)} " + it
-                                    )
-                                )
-                            }
-                        }
+                    val results = mapping.actions
+                        .filter { it.toLowerCase().contains(message) }
+                        .map { LookupElementBuilder.create("${mapping.getText(it)} " + it) }
+                    result.addAllElements(results)
                 }
             })
     }
