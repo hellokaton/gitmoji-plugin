@@ -53,3 +53,5 @@ fabric.properties
 /gitmoji-plugin.jar
 .idea/
 *.iml
+/build/
+/.gradle/
